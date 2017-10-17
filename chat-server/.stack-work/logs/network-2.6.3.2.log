@@ -1,0 +1,106 @@
+[1 of 2] Compiling Main             ( C:\Users\Paul\AppData\Local\Temp\stack10816\network-2.6.3.2\Setup.hs, C:\Users\Paul\AppData\Local\Temp\stack10816\network-2.6.3.2\.stack-work\dist\ca59d0ab\setup\Main.o )
+[2 of 2] Compiling StackSetupShim   ( C:\sr\setup-exe-src\setup-shim-Z6RU0evB.hs, C:\Users\Paul\AppData\Local\Temp\stack10816\network-2.6.3.2\.stack-work\dist\ca59d0ab\setup\StackSetupShim.o )
+Linking C:\Users\Paul\AppData\Local\Temp\stack10816\network-2.6.3.2\.stack-work\dist\ca59d0ab\setup\setup.exe ...
+Configuring network-2.6.3.2...
+configure: WARNING: unrecognized options: --with-compiler
+checking build system type... x86_64-pc-mingw64
+checking host system type... x86_64-pc-mingw64
+checking for gcc... C:\Users\Paul\AppData\Local\Programs\stack\X86_64~1\GHC-80~1.2\mingw\bin\gcc.exe
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.exe
+checking for suffix of executables... .exe
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether C:\Users\Paul\AppData\Local\Programs\stack\X86_64~1\GHC-80~1.2\mingw\bin\gcc.exe accepts -g... yes
+checking for C:\Users\Paul\AppData\Local\Programs\stack\X86_64~1\GHC-80~1.2\mingw\bin\gcc.exe option to accept ISO C89... none needed
+checking for an ANSI C-conforming const... yes
+checking how to run the C preprocessor... C:\Users\Paul\AppData\Local\Programs\stack\X86_64~1\GHC-80~1.2\mingw\bin\gcc.exe -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking for stdlib.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking winsock2.h usability... yes
+checking winsock2.h presence... yes
+checking for winsock2.h... yes
+checking ws2tcpip.h usability... yes
+checking ws2tcpip.h presence... yes
+checking for ws2tcpip.h... yes
+checking arpa/inet.h usability... no
+checking arpa/inet.h presence... no
+checking for arpa/inet.h... no
+checking netdb.h usability... no
+checking netdb.h presence... no
+checking for netdb.h... no
+checking netinet/in.h usability... no
+checking netinet/in.h presence... no
+checking for netinet/in.h... no
+checking netinet/tcp.h usability... no
+checking netinet/tcp.h presence... no
+checking for netinet/tcp.h... no
+checking sys/socket.h usability... no
+checking sys/socket.h presence... no
+checking for sys/socket.h... no
+checking sys/uio.h usability... no
+checking sys/uio.h presence... no
+checking for sys/uio.h... no
+checking sys/un.h usability... no
+checking sys/un.h presence... no
+checking for sys/un.h... no
+checking linux/can.h usability... no
+checking linux/can.h presence... no
+checking for linux/can.h... no
+checking linux/tcp.h usability... no
+checking linux/tcp.h presence... no
+checking for linux/tcp.h... no
+checking net/if.h usability... no
+checking net/if.h presence... no
+checking for net/if.h... no
+checking for readlink... no
+checking for symlink... no
+checking for if_nametoindex... no
+checking for struct msghdr.msg_control... no
+checking for struct msghdr.msg_accrights... no
+checking for struct sockaddr.sa_len... no
+checking for in_addr_t in netinet/in.h... no
+checking for SO_PEERCRED and struct ucred in sys/socket.h... no
+checking for getpeereid in unistd.h... checking for getpeereid... no
+checking for _head_libws2_32_a in -lws2_32... no
+checking for getaddrinfo... yes
+checking for gai_strerror... no
+checking whether AI_ADDRCONFIG is declared... no
+checking whether AI_ALL is declared... no
+checking whether AI_NUMERICSERV is declared... no
+checking whether AI_V4MAPPED is declared... no
+checking whether IPV6_V6ONLY is declared... yes
+checking whether IPPROTO_IP is declared... yes
+checking whether IPPROTO_TCP is declared... yes
+checking whether IPPROTO_IPV6 is declared... yes
+checking for sendfile in sys/sendfile.h... no
+checking for sendfile in sys/socket.h... no
+checking for gethostent... no
+checking for accept4... no
+configure: creating ./config.status
+config.status: creating network.buildinfo
+config.status: creating include/HsNetworkConfig.h
+configure: WARNING: unrecognized options: --with-compiler
+Building network-2.6.3.2...
+Preprocessing library network-2.6.3.2...
+[1 of 9] Compiling Network.Socket.Types ( .stack-work\dist\ca59d0ab\build\Network\Socket\Types.hs, .stack-work\dist\ca59d0ab\build\Network\Socket\Types.o )
