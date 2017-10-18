@@ -37,6 +37,7 @@ runConn (sock, _) chan msgNum = do
  
     hPutStrLn hdl "Hi, what's your name?"
     name <- fmap init (hGetLine hdl)
+	//broadcast func
     broadcast ("--> " ++ name ++ " entered chat.")
     hPutStrLn hdl ("Welcome, " ++ name ++ "!")
  
