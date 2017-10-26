@@ -14,12 +14,26 @@
   (major1) == 4 && (major2) <  9 || \
   (major1) == 4 && (major2) == 9 && (minor) <= 1)
 
+/* package containers-0.5.7.1 */
+#define VERSION_containers "0.5.7.1"
+#define MIN_VERSION_containers(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  5 || \
+  (major1) == 0 && (major2) == 5 && (minor) <= 7)
+
 /* package network-2.6.3.2 */
 #define VERSION_network "2.6.3.2"
 #define MIN_VERSION_network(major1,major2,minor) (\
   (major1) <  2 || \
   (major1) == 2 && (major2) <  6 || \
   (major1) == 2 && (major2) == 6 && (minor) <= 3)
+
+/* package stm-2.4.4.1 */
+#define VERSION_stm "2.4.4.1"
+#define MIN_VERSION_stm(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  4 || \
+  (major1) == 2 && (major2) == 4 && (minor) <= 4)
 
 /* tool gcc-5.2.0 */
 #define TOOL_VERSION_gcc "5.2.0"

@@ -1,0 +1,18 @@
+Configuring compact-map-2008.11.9...
+Building compact-map-2008.11.9...
+Preprocessing library compact-map-2008.11.9...
+
+src\Data\CompactMap\Types.hs:1:12: warning:
+    -fglasgow-exts is deprecated: Use individual extensions instead
+
+src\Data\CompactMap\Index.hs:1:12: warning:
+    -fglasgow-exts is deprecated: Use individual extensions instead
+
+src\Data\CompactMap\Fetch.hs:1:16: warning:
+    -fglasgow-exts is deprecated: Use individual extensions instead
+[1 of 5] Compiling Data.CompactMap.Types ( src\Data\CompactMap\Types.hs, .stack-work\dist\ca59d0ab\build\Data\CompactMap\Types.o )
+
+src\Data\CompactMap\Types.hs:9:1: error:
+    Failed to load interface for `GHC.IOBase'
+    Perhaps you meant GHC.Base (from base-4.9.1.0)
+    Use -v to see a list of the files searched for.

@@ -1,59 +1,75 @@
-module Main where
- 
-import Network.Socket
+--importing libraries
+{-# LANGUAGE RecordWildCards #-}
 import System.IO
-import Control.Exception
+import Data.Map (Map)
+import qualified Data.Map as Map
+import Text.Printf
+import Network
 import Control.Concurrent
-import Control.Monad (when)
-import Control.Monad.Fix (fix)
- 
+import Control.Concurrent.STM
+import Control.Monad
+
+
+--Defining student identification value
+type StudentId = Int
+type StudentName = String
+
+--Defining properties of student
+data Student = Student
+  { studentId     :: StudentId,
+    studentName   :: StudentName,
+    studentHandle :: Handle,
+    studentChan   :: TChan Message
+  }
+
+--defining message for studentChan
+data Message = Notice String
+             | Tell StudentName String
+             | Broadcast StudentName String
+             | Command String
+
+--new instance of participants
+newParticipant :: StudentId -> StudentName -> Handle -> STM Student
+newParticipant id name handle = do
+  n <- newTChan
+  return Student { studentId     = id
+                 , studentName   = name
+                 , studentHandle = handle
+                 , studentChan   = n
+                 }
+
+--sending a message to a given client
+sendMessage :: Student -> Message -> STM ()
+sendMessage Student{..} msg =
+  writeTChan studentChan msg
+
+
+--data structure that stores the sserver state
+data Server = Server
+  { participants :: TVar (Map StudentName Student)
+  }
+
+initServer :: IO Server
+initServer = do
+  n <- newTVarIO Map.empty
+  return Server {participants = n}
+
+broadcast :: Server -> Message -> STM ()
+broadcast Server{..} msg = do
+  participantmap <- readTVar participants
+  mapM_ (\participant -> sendMessage participant msg) (Map.elems participantmap)
+
+
 main :: IO ()
-main = do
-  sock <- socket AF_INET Stream 0
-  setSocketOption sock ReuseAddr 1
-  bind sock (SockAddrInet 4242 iNADDR_ANY)
-  listen sock 2
-  chan <- newChan
-  _ <- forkIO $ fix $ \loop -> do
-    (_, _) <- readChan chan
-    loop
-  mainLoop sock chan 0
- 
-type Msg = (Int, String)
- 
-mainLoop :: Socket -> Chan Msg -> Int -> IO ()
-mainLoop sock chan msgNum = do
-  conn <- accept sock
-  forkIO (runConn conn chan msgNum)
-  mainLoop sock chan $! msgNum + 1
- 
-runConn :: (Socket, SockAddr) -> Chan Msg -> Int -> IO ()
-runConn (sock, _) chan msgNum = do
-    let broadcast msg = writeChan chan (msgNum, msg)
-    hdl <- socketToHandle sock ReadWriteMode
-    hSetBuffering hdl NoBuffering
- 
-    hPutStrLn hdl "Received"
-    name <- fmap init (hGetLine hdl)
-    broadcast ("--> " ++ name ++ " entered chat.")
-    hPutStrLn hdl ("Welcome, " ++ name ++ "!")
- 
-    commLine <- dupChan chan
- 
-    -- fork off a thread for reading from the duplicated channel
-    reader <- forkIO $ fix $ \loop -> do
-        (nextNum, line) <- readChan commLine
-        when (msgNum /= nextNum) $ hPutStrLn hdl line
-        loop
- 
-    handle (\(SomeException _) -> return ()) $ fix $ \loop -> do
-        line <- fmap init (hGetLine hdl)
-        case line of
-             -- If an exception is caught, send a message and break the loop
-             "quit" -> hPutStrLn hdl "Bye!"
-             -- else, continue looping.
-             _      -> broadcast (name ++ ": " ++ line) >> loop
- 
-    killThread reader                      -- kill after the loop ends
-    broadcast ("<-- " ++ name ++ " left.") -- make a final broadcast
-    hClose hdl                             -- close the handle
+main = withSocketsDo $ do
+  server <- initServer
+  sock <- listenOn (PortNumber (fromIntegral port))
+  printf "Listening on port %d\n" port
+  forever $ do
+      (handle, host, port) <- accept sock
+      printf "Accepted connecteion from %s: %s\n" host (show port)
+      --forkFinally (talk handle server) (\_ -> hClose handle)
+
+port :: Int
+port = 50000
+      
