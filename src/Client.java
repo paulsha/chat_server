@@ -11,6 +11,7 @@ public class Client implements Runnable {
      */
     enum Command {
         HELO("HELO", 0),
+		ANYTHING("ANYTHING", 0),
         KILL_SERVICE("KILL_SERVICE", 0),
         JOIN_CHATROOM("JOIN_CHATROOM", 4),
         LEAVE("LEAVE_CHATROOM", 3),
@@ -122,13 +123,15 @@ public class Client implements Runnable {
                 disconnect();
             } else if (command.equals(Command.KILL_SERVICE.command)) {
                 killService();
+		    } else if (command.equals(Command.ANYTHING.command)) {
+                killService();
             } else {
                 //throw new ClientException(ClientExceptionTypes.UNKNOWN_COMMAND, toClient, firstLine);
 				System.out.println("Unknown command!\n");
             }
         } catch (ClientException c) {
-            c.printStackTrace();
-            c.sendError();
+            //c.printStackTrace();
+            //c.sendError();
         }
     }
 
