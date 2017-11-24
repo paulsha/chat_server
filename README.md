@@ -17,16 +17,12 @@ Please ensure that Java Development Kit is installed before instantiating the se
 
 ```
 
-###Running the Server
+### Running the Server
 
 The server can be ran with the following scripts (ensure they have executable permissions):
 - Compile: `./compile.sh`
 - Run: `./start.sh <port>`
 
-###Authors
-The server can be ran with the following scripts (ensure they have executable permissions):
-- Compile: `./compile.sh`
-- Run: `./start.sh <port>`
 
 ###Screengrab from Test
 ![Score](Capture_100.PNG)
