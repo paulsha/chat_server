@@ -348,7 +348,19 @@ public class Client implements Runnable {
             e.printStackTrace();
         }
     }
-
+    public void sendMessageToClientJoin(String[] messages) {
+        try {
+            for(String message : messages) 
+			{
+                toClient.writeLineJoin(message);
+				//System.out.println(message);
+				
+            }
+            toClient.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * Safely terminates the client's connection to the server.
      */

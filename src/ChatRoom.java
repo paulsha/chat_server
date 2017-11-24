@@ -47,8 +47,8 @@ public class ChatRoom {
 	
 		//System.out.println("Before message");
         String[] fullMessage = {
-                "CHAT: " + chatRoomId,
-                "CLIENT_NAME: " + sender.getNameInChatroom(this.chatRoomId),
+                "CHAT: " + chatRoomId + "\n" +
+                "CLIENT_NAME: " + sender.getNameInChatroom(this.chatRoomId) + "\n" +
                 "MESSAGE: " + message};
 	    //sender.sendMessageToClient(fullMessage);
 		//sender.sendMessageToClient(fullMessage);
@@ -71,7 +71,7 @@ public class ChatRoom {
         System.out.println("Name set in chat room");
 		respondToClientJoinChatRoom(client);
 		System.out.println("Processed Join Request");
-        //chat(client, client.getNameInChatroom(this.chatRoomId) + " has joined the chat room.");
+        chat(client, client.getNameInChatroom(this.chatRoomId) + " has joined the chat room.");
     }
 
 
@@ -81,7 +81,13 @@ public class ChatRoom {
      */
     public void leaveChatRoom(Client client) {
         respondToClientLeavingChatRoom(client);
-       // chat(client, client.getNameInChatroom(this.chatRoomId) + " has left the chat room.");
+		
+		try {
+    Thread.sleep(1000);                 //1000 milliseconds is one second.
+} catch(InterruptedException ex) {
+    Thread.currentThread().interrupt();
+}
+        chat(client, client.getNameInChatroom(this.chatRoomId) + " has left the chat room.");
         connectedClients.remove(client.getClientId());
     }
 
@@ -122,14 +128,11 @@ public class ChatRoom {
                 "SERVER_IP: " + server.getIP() + "\n" +
                 "PORT: " + server.getPort()+ "\n" +
                 "ROOM_REF: " + chatRoomId + "\n" + 
-				"JOIN_ID: " + client.getClientId() + "\n" +
-				"CHAT: " + chatRoomId + "\n" +
-				"CLIENT_NAME: " + client.getNameInChatroom(this.chatRoomId) + "\n" +
-				"MESSAGE: " + client.getNameInChatroom(this.chatRoomId) + " has joined the chat room."};
+				"JOIN_ID: " + client.getClientId() + "\n"};
 		System.out.println(client.getNameInChatroom(this.chatRoomId));
 		//Arrays.copyOf(messages, messages.length-1);
 		
-        client.sendMessageToClient(messages);
+        client.sendMessageToClientJoin(messages);
     }
 
     /**
@@ -139,13 +142,10 @@ public class ChatRoom {
     private void respondToClientLeavingChatRoom(Client client) {
         String[] messages = {
                 "LEFT_CHATROOM: " + String.valueOf(this.chatRoomId) + "\n" +
-                "JOIN_ID: " + String.valueOf(client.getClientId()) + "\n" +
-				"CHAT: " + chatRoomId + "\n" +
-				"CLIENT_NAME: " + client.getNameInChatroom(this.chatRoomId) + "\n" +
-				"MESSAGE: " + client.getNameInChatroom(this.chatRoomId) + " has left the chat room."
+                "JOIN_ID: " + String.valueOf(client.getClientId() + "\n") 
         };
 
-        client.sendMessageToClient(messages);
+        client.sendMessageToClientJoin(messages);
     }
 
     /**

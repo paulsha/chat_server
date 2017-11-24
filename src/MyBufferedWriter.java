@@ -11,6 +11,11 @@ public class MyBufferedWriter extends BufferedWriter{
         this.write(line);
         this.newLine();
     }
+	
+	  public void writeLineJoin(String line) throws IOException {
+        this.write(line);
+        
+    }
 
     public void writeNow(String line) throws IOException {
         this.write(line);
