@@ -13,7 +13,7 @@ The server records a score of 100/100 when tested.
 Java Development Kit
 
 Please ensure that Java Development Kit is installed before instantiating the server.
-- [JDK Download](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [JDK Download](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 ```
 
