@@ -1,0 +1,90 @@
+
+/*
+JOIN_CHATROOM: Default
+CLIENT_IP: 0
+PORT: 0
+CLIENT_NAME: Frank
+
+CHAT: 0
+JOIN_ID: 0
+CLIENT_NAME: Frank
+MESSAGE: I Love Cats!\n\n
+
+JOIN_CHATROOM: Franks Cats
+CLIENT_IP: 0
+PORT: 0
+CLIENT_NAME: Frank
+
+CHAT: 0
+JOIN_ID: 0
+CLIENT_NAME: Frank
+MESSAGE: Join my CATroom ha!\n\n
+
+CHAT: 1
+JOIN_ID: 0
+CLIENT_NAME: Frank
+MESSAGE: Does everyone here love cats?\n\n
+
+LEAVE_CHATROOM: 0
+JOIN_ID: 0
+CLIENT_NAME: Stefano_redundant
+
+DISCONNECT: 0
+PORT: 0
+CLIENT_NAME: Stefano_redundant
+
+KILL_SERVICE
+
+
+
+STEFANO Stuff
+JOIN_CHATROOM: Default
+CLIENT_IP: 0
+PORT: 0
+CLIENT_NAME: Stefano
+
+CHAT: 0
+JOIN_ID: 1
+CLIENT_NAME: Stefano
+MESSAGE: I Love Dogs!\n\n
+
+JOIN_CHATROOM: Franks Cats
+CLIENT_IP: 0
+PORT: 0
+CLIENT_NAME: Stefano
+
+CHAT: 1
+JOIN_ID: 1
+CLIENT_NAME: Stefano
+MESSAGE: Dogs rule cats drool\n\n
+
+LEAVE_CHATROOM: 1
+JOIN_ID: 1
+CLIENT_NAME: Stefano_redundant
+
+DISCONNECT: 0
+PORT: 0
+CLIENT_NAME: Stefano_redundant
+
+
+// CATDOG
+JOIN_CHATROOM: Default
+CLIENT_IP: 0
+PORT: 0
+CLIENT_NAME: CatDogzz2k8
+
+CHAT: 0
+JOIN_ID: 2
+CLIENT_NAME: CatDogzz2k8
+MESSAGE: I Love cats & Dogs!\n\n
+
+JOIN_CHATROOM: Franks Cats
+CLIENT_IP: 0
+PORT: 0
+CLIENT_NAME: CatDogzz2k8
+
+CHAT: 2
+JOIN_ID: 2
+CLIENT_NAME: CatDogzz2k8
+MESSAGE: Dogs rule cats also rule\n\n
+*/
